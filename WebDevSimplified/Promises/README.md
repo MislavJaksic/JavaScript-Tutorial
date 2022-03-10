@@ -15,20 +15,19 @@ p.then((message) => console.log(`Displays Success: ${message}`))
 ```
 
 ```js
-function handleJimWork() {
+function handleWork() {
   return new Promise((resolve, reject) => {
-    // Slow method that runs in the background
-    const success = doJimWork()
+    const success = doWork()  // Slow method that runs in the background
     if (success) {
       resolve(100)
     } else {
-      reject("Jim broke his leg")
+      reject("Cannot do work")
     }
   })
 }
 
-handleJimWork().then(amount => {
-  console.log(`Jim paid you ${amount} dollars`)
+handleWork().then(amount => {
+  console.log(`You were paid ${amount} dollars`)
 }).catch(reason => {
   console.error(`Error: ${reason}`)
 })

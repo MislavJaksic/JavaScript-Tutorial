@@ -12,38 +12,28 @@ function setTimeoutPromise(delay) {
 }
 
 setTimeoutPromise(250).then(msg => {
-  console.log(msg)
-  console.log("First Timeout")
-  return setTimeoutPromise(500)  // need to return it to b able to chain .then
+  console.log(`First Timeout: ${msg}`)
+  return setTimeoutPromise(500)  // need to return it to be able to chain .then
 }).then(msg => {
-  console.log(msg)
-  console.log("Second Timeout")
+  console.log(`Second Timeout: ${msg}`)
 })
-// Output:
-// You waited 250 milliseconds
-// First Timeout
-// You waited 500 milliseconds
-// Second Timeout
+// First Timeout: You waited 250 milliseconds
+// Second Timeout: You waited 500 milliseconds
 ```
 
 ```js
-doStuff()
 async function doStuff() {
 	try {
-		  const msg1 = await setTimeoutPromise(250)  // do something else until this Promise resolves, then continue executing code
-		  console.log(msg1)
-		  console.log("First Timeout")
+		  const msg1 = await setTimeoutPromise(250)  // do something else until this Promise resolves, then continue executing code; similar to yield in Python
+		  console.log(`First Timeout: ${msg}`)
 
 		  const msg2 = await setTimeoutPromise(500)
-		  console.log(msg2)
-		  console.log("Second Timeout")
+		  console.log(`Second Timeout: ${msg}`)
 		} catch (error) {
 			console.log(error)
 		}
 }
-// Output:
-// You waited 250 milliseconds
-// First Timeout
-// You waited 500 milliseconds
-// Second Timeout
+doStuff()
+// First Timeout: You waited 250 milliseconds
+// Second Timeout: You waited 500 milliseconds
 ```

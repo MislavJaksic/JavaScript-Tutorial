@@ -33,21 +33,15 @@ class Person {
   }
 
   printNameArrow() {
-    setTimeout(() => {
-      console.log(`Arrow: ${this.name}`)
-    }, 100)
+    setTimeout(() => console.log(`Arrow: ${this.name}`), 100)
   }
 
   printNameFunction() {
-    setTimeout(function() {
-      console.log(`Function: ${this.name}`)
-    }, 100)
+    setTimeout(function() {console.log(`Function: ${this.name}`)}, 100)
   }
 }
 
-const person = new Person('Kyle')
-person.printNameArrow()
-// Arrow: Kyle
-person.printNameFunction()
-// Function: 
+const person = new Person('Anne')
+person.printNameArrow()  // Arrow: Anne
+person.printNameFunction()  // Function:
 ```
